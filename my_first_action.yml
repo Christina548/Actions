@@ -1,0 +1,28 @@
+Name: my first action
+On:
+  Push:
+    branches:
+    - "main"
+
+jobs:
+  build_and_test: 
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: set up Node.js 20.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20. x'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run tests
+        run: npm test
+
+      - name: check my code
+        uses: actions/checkout@v2
+
+      - name: display a message
+        run: echo "hello this is your first commit on the main branch"
+
